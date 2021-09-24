@@ -13,15 +13,15 @@ class BaseModel(models.Model):
 
 
 class Todo(BaseModel):
-    name = models.CharField(max_length=255, null=True)
-    todo_list = models.ForeignKey('TodoList', on_delete=models.CASCADE, null=True)
+    name = models.CharField(max_length=255)
+    todo_list = models.ForeignKey('TodoList', on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
 
 
 class TodoList(BaseModel):
-    name = models.CharField(max_length=255, null=True)
+    name = models.CharField(max_length=255)
 
     def __str__(self):
         return self.name
