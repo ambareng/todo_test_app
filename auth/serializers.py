@@ -1,7 +1,8 @@
 from django.contrib.auth.models import User
 from django.contrib.auth.hashers import make_password
 
-from rest_framework.serializers import ModelSerializer
+from rest_framework import serializers
+from rest_framework.serializers import ModelSerializer, Serializer
 
 
 class UserSerializer(ModelSerializer):
@@ -18,3 +19,8 @@ class UserSerializer(ModelSerializer):
         )
         user.save()
         return user
+
+
+class LoginSerializer(serializers.Serializer):
+    email = serializers.EmailField()
+    password = serializers.CharField(max_length=255)
