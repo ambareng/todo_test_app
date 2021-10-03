@@ -50,3 +50,12 @@ class JWTAuthentication(BaseAuthentication):
 
     def authenticate_header(self, request):
         return 'Token'
+
+    @staticmethod
+    def get_current_user(request):
+        auth = get_authorization_header(request).split()
+        token = auth[1]
+        payload = jwt.decode(token, "secret", algorithms=["HS256"])
+        user_id = payload['id']
+        user = User.objects.get(id=user_id)
+        return user

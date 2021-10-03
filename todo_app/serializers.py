@@ -20,4 +20,4 @@ class TodoListSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = TodoList
-        fields = ['id', 'name', 'todos', 'created_at', 'updated_at']
+        fields = ['id', 'user', 'name', 'todos', 'created_at', 'updated_at']
