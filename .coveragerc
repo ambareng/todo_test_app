@@ -19,6 +19,9 @@ omit =
    */site-packages/*
    */distutils/*
 
+   *auth/admin.py
+   *auth/models.py
+
 
 [report]
 #fail_under = 100
